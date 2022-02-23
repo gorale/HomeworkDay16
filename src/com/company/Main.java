@@ -5,46 +5,62 @@ import java.util.Scanner;
 
 public class Main {
 
-    public static void matrix12(int n, int m) {
+    public static void matrixSnake(int n, int m) {
         int[][] arr = new int[n][m];
-        int q = 0;
-        int count = 0;
-        for (int i = 0; i < n; i++) {
-            for (int j = 0; i < m; i++) {
-                if (true) {
-                    arr[i][j] = count;
-                    count++;
 
+        int k = 0;
+
+        for (int i = 0; i < n; i++) {
+            if (i % 2 == 0) {
+                for (int j = 0; j < m; j++) {
+                    arr[i][j] = k;
+                    k++;
+                }
+            } else {
+                for (int j = m - 1; j >= 0; j--) {
+                    arr[i][j] = k;
+                    k++;
                 }
             }
         }
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < m; j++) {
+                if(j == m-1){
+                    System.out.print(arr[i][j]);
+                    System.out.print("\n");
+                    break;
+                }
+                System.out.print(arr[i][j]+" ");
+            }
+
+        }
+
     }
 
     public static void multiplicationTable() {
         int[][] arr = new int[4][5];
         int col = 0;
         int row = 0;
-        for (int i = 0; i < 4*5; i++) {
+        for (int i = 0; i < 4 * 5; i++) {
 //            arr[i][i]=i*i;
-            row = i/4;
-            col = i%4;
-            if(col%4 == 0){
+            row = i / 4;
+            col = i % 4;
+            if (col % 4 == 0) {
                 System.out.print("\n");
             }
-            System.out.print(row*col+" ");
-
+            System.out.print(row * col + " ");
 
 
         }
     }
 
     public static void primeFactors(int n) {
-        while (n%2==0){
+        while (n % 2 == 0) {
             System.out.print(2 + " ");
             n /= 2;
         }
-        for (int i = 3; i <= Math.sqrt(n); i+= 2){
-            while (n%i == 0){
+        for (int i = 3; i <= Math.sqrt(n); i += 2) {
+            while (n % i == 0) {
                 System.out.print(i + " ");
                 n /= i;
             }
@@ -248,7 +264,8 @@ public class Main {
 //        primeFactors(n);
 
         int m = sc.nextInt();
-        multiplicationTable();
+//        multiplicationTable();
+        matrixSnake(n,m);
 
 //        System.out.print("Enter m: ");
 //        int m = sc.nextInt();
